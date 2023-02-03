@@ -1,0 +1,29 @@
+.custom-bold {
+    font-weight: bold;
+    font-size: large;
+}
+.search-button{
+    background-color: white;
+}
+.search-button:hover{
+    background-color: rgb(60, 255, 0);
+}
+.gradient-background-light{
+    background-image: linear-gradient(to right, #fb21f0, #ffb940);
+}
+.gradient-background-dark{
+    background-image: linear-gradient(to right, #ffb940, #fb21f0);
+}
+.sb{
+    width: 25rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    border-radius: 1.625rem;
+    padding: 0 1.5rem 0 1.5rem;
+    height: 2.8rem;
+}
+.lg{
+    margin-top:5px;
+    margin:5px 35px 5px;
+    
+}
