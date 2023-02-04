@@ -1,17 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import {Link} from "react-router-dom";
 import "./CSS/Searchbar.css"
 import search from "./logo/search.png"
 import dark from "./logo/Dark-Mode.png"
 import light from "./logo/Light-Mode.png"
-import login from "./logo/login-logo.png"
+import loginico from "./logo/login-logo.png"
+import logo from "./logo/Compareverything-logo.png"
 export default function Searchbar(props) {
   return (
     <div>
         <nav>
             <div className={`d-flex navbar-${props.mode} ${props.mode==='light'?'gradient-background-light':'gradient-background-dark'}`}>
                 {/* Search bar code is given below */}
-                <a className='navbar-brand p-3 custom-bold' href='/'>{props.title}</a>
+                <Link to="/" className='navbar-brand p-3 custom-bold'>
+                    <img className='logo-margin' src={logo} alt=""/> 
+                    {props.title}
+                </Link>
                 <form className="d-flex mx-auto pt-2 pb-2" role="search">
                     {/* form-control */}
                     <input className='d-flex sb me-2' type="search" placeholder='Search product' aria-label='Search'/>
@@ -19,10 +23,10 @@ export default function Searchbar(props) {
                 </form>
                 {/* Login / Sign Up page code below */}
                     <div className='d-flex lg'>
-                        <button className="btn">
-                            <img src={login} alt="Login" />
+                        <Link to='/login' className="nav-link">
+                            <img src={loginico} alt="Login" />
                             <label className=''>login</label>
-                        </button>
+                        </Link>
                     </div>
                 {/* Light to dark mode switch code below */}
                 <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'} p-3`}>

@@ -1,8 +1,9 @@
 import './App.css';
 import React, { useState } from "react";
+import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import Searchbar from './components/Searchbar';
+import Homec from './components/Home';
+import Loginc from './components/Login';
 function App() {
   const [mode, setMode] = useState("light");
   const toggleMode = () => {
@@ -12,14 +13,17 @@ function App() {
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
-
     }
   };
   return (
     <>
-      <Searchbar title="Compareverything" hometxt="" linktxt="" disabledtxt="" toggleMode={toggleMode} mode={mode}/>
+    <Router>
+        <Routes>
+          <Route exac path='/' element={<Homec mode={mode} toggleMode={toggleMode}/>} />
+          <Route path='/login' element={<Loginc mode={mode}/>}/>
+        </Routes>
+    </Router>
     </>
   );
 }
-
 export default App;
