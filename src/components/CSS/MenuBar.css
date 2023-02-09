@@ -1,0 +1,28 @@
+.size{
+    height: 40px;
+    width:100%;
+}
+.background-light{
+    background-color: aliceblue;
+    /* aliceblue f0f5ff*/
+}
+.background-dark{
+    background-color: #05355c;
+}
+.Linkelem{
+    text-decoration: none;
+    /* color:black; */
+    margin:2px 0px 2px 0px;
+
+}
+.Linkelem:hover{
+    background-color: #e0e9e0;
+    color:black;
+    padding:0px 5px 0px 5px;
+}
+.textw{
+    color:white;
+}
+.textb{
+    color:black;
+}
