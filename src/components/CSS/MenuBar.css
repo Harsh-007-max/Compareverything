@@ -26,3 +26,13 @@
 .textb{
     color:black;
 }
+.Home__IconWhite{
+    color:white;
+}
+.Home__IconDark{
+    color:black;
+}
+
+.Home__IconWhite:hover{
+    color:black;
+}
