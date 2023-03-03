@@ -16,7 +16,7 @@ export default function Home(props) {
         toggleMode={props.toggleMode}
         mode={props.mode}
       />
-      <MenuBar mode={props.mode} toggleMode={props.toggleMode} />
+
       {/* <Marquee/> */}
       <div className="home__container">
         <img
