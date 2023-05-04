@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./CSS/login.css";
 import logo from "./logo/logo.png";
-import { Link,Redirect } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 function LoginForm(props) {
   const [data, setData] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   let redirect = false;
+  const navigate = useNavigate();
   useEffect(() => {
     fetch("http://localhost:3005/login")
       .then((res) => res.json())
@@ -20,19 +20,15 @@ function LoginForm(props) {
   const authenticateuser=()=>{
     const authenticatedUser = data.find((d)=>d.Email===email && d.Password === password);
     if (authenticatedUser) {
-      setIsAuthenticated(true);
       console.log("authentication succesful " + email + " and " + password);
       redirect = true;
-        window.location.href="/"
+      navigate('/');
     } else {
-        setIsAuthenticated(false);
       console.log("authentication failed " + email + " and " + password);
+      redirect=false;
     }
   }
-  if(redirect){
-    window.location.href="/"
-    console.log("redirect true");
-  }
+
   return (
     <>
       <div className="login-card-container">
@@ -46,7 +42,6 @@ function LoginForm(props) {
           </div>
           <form className="login-card-form">
             <div className="form-item">
-              {/* <span className="d-flex form-item-icon material-symbols-rounded">E-Mail</span> */}
               <input
                 type="email"
                 className="d-flex"
@@ -71,12 +66,13 @@ function LoginForm(props) {
             </button>
                
           </form>
-          <div className="login-card-footer">
+          {/* <div className="login-card-footer">
             Don't have an account?{" "}
             <Link to="/signup">Create a free account.</Link>
-          </div>
+          </div> */}
         </div>
       </div>
+      {/* {redirect && <Link to='/'/>} */}
     </>
   );
 }
