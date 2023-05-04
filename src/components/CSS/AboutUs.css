@@ -1,0 +1,31 @@
+.about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+  .about-us-content {
+    max-width: 800px;
+    padding: 50px;
+  }
+  
+  .about-us-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  
+  .about-us-section-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-section-description {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .about-us-content>htmlH1{
+    font-size: 100px;
+    color:aliceblue;
+  }

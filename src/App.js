@@ -15,6 +15,8 @@ import HomeAppliances from "./components/HomeAppliances";
 import Beauty from "./components/Beauty";
 import Furniture from "./components/Furniture";
 import Books from "./components/Books";
+import AboutUs from "./components/AboutUs";
+
 function App() {
   const [data, setData] = useState([]);
   const [mode, setMode] = useState("light");
@@ -42,6 +44,8 @@ function App() {
           <Route path="/Beauty"element={<><Searchbar data={data} setData={setData} title="Compareverything" toggleMode={toggleMode} mode={mode} /><Beauty data={data} setData={setData} mode={mode} toggleMode={toggleMode}/></>}/>
           <Route path="/furniture" element={<><Searchbar data={data} setData={setData} title="Compareverything" toggleMode={toggleMode} mode={mode}/><Furniture data={data} setData={setData} mode={mode} toggleMode={toggleMode}/></>}/>
           <Route path="/books" element={<><Searchbar data={data} setData={setData} title="Compareverything" toggleMode={toggleMode} mode={mode}/><Books data={data} setData={setData} mode={mode} toggleMode={toggleMode} /></> }/>
+          <Route path="/AboutUs" element={<><Searchbar data={data} setData={setData} title="Compareverything" toggleMode={toggleMode} mode={mode}/><AboutUs data={data} setData={setData} mode={mode} toggleMode={toggleMode} /></> }/>
+
           <Route exac path="/" element={<><Searchbar data={data} setData={setData} title="Compareverything" toggleMode={toggleMode} mode={mode} /><Homec data={data} setData={setData} mode={mode} toggleMode={toggleMode} /></>}/>
         </Routes>
       </Router>

@@ -74,6 +74,15 @@ export default function MenuBar(props) {
           >
             Books
           </Link>
+
+          <Link
+            to={`/AboutUs`}
+            className={`d-flex ${props.mode === "light"?"Linkeleml":"Linklemd"} nav-link mx-auto pt-2 pb-2 ${
+              props.mode === "light" ? "textb" : "textw"
+            }`}
+          >
+            AboutUs
+          </Link>
         </div>
       </nav>
     </>

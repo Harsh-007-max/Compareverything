@@ -12,6 +12,11 @@ const IndiProduct = (props) => {
       .catch((err) => console.log(err));
     }
   }, []);
+
+  const handleClick=()=>{
+    window.scrollTo(0,0);
+  };
+
   const chunks = props.data.reduce((acc, item, index) => {
     const chunkIndex = Math.floor(index / 2);
     if (!acc[chunkIndex]) {
@@ -28,6 +33,8 @@ const IndiProduct = (props) => {
         className={`indi__product ${
           props.mode === "light" ? "indi__light" : "indi__dark"
         }`}
+
+        onClick={handleClick}
       >
         {state && (
           <>
@@ -79,7 +86,7 @@ const IndiProduct = (props) => {
         <h1 className={`mp ${props.mode ==='light'? 'mp__light':'mp__dark'}`}>
           <i>More Products Like this</i>
         </h1>
-        <div className="products">
+        <div className="products" onClick={handleClick}>
           {chunks.map((chunk, i) => (
             <div className={`product__row ${props.mode === 'light'?'product__row__light':'product__row__dark'}`} key={i}>
               {chunk.map((d)=>(  

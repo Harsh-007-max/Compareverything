@@ -9,6 +9,11 @@ export default function Home(props) {
       .then((data) => props.setData(data))
       .catch((err) => console.log(err));
   }, []);
+
+  const handleClick=()=>{
+    window.scrollTo(0,0);
+  };
+
   const chunks = props.data.reduce((acc, item, index) => {
     const chunkIndex = Math.floor(index / 2);
     if (!acc[chunkIndex]) {
@@ -30,7 +35,7 @@ export default function Home(props) {
           alt=""
         />
         {chunks.map((chunk, i) => (
-          <div className="home__row" key={i}>
+          <div className="home__row" onClick={handleClick} key={i}>
             {chunk.map((d) => (
               <Product 
                 key={d.key}
