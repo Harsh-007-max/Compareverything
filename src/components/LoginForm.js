@@ -1,30 +1,37 @@
 import React, { useState, useEffect } from "react";
 import "./CSS/login.css";
 import logo from "./logo/logo.png";
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 function LoginForm(props) {
   const [data, setData] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  let redirect = false;
   useEffect(() => {
     fetch("http://localhost:3005/login")
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => console.log(err));
   }, []);
-  const authenticate = () => {
-    data.map((d)=>( authenticateuser(d)))
-  };
-  const authenticateuser=(d)=>{
-    if (email === d.Email && password === d.Password) {
+  // const authenticate = () => {
+  //   data.map((d)=>( authenticateuser(d)))
+  // };
+  const authenticateuser=()=>{
+    const authenticatedUser = data.find((d)=>d.Email===email && d.Password === password);
+    if (authenticatedUser) {
       setIsAuthenticated(true);
       console.log("authentication succesful " + email + " and " + password);
-      return ;
+      redirect = true;
+        window.location.href="/"
     } else {
         setIsAuthenticated(false);
       console.log("authentication failed " + email + " and " + password);
     }
+  }
+  if(redirect){
+    window.location.href="/"
+    console.log("redirect true");
   }
   return (
     <>
@@ -59,15 +66,15 @@ function LoginForm(props) {
                 required
               />
             </div>
-            <button onClick={authenticate} className="nav-link logb">
+            <button onClick={authenticateuser} className="nav-link logb">
               Log In
             </button>
+               
           </form>
           <div className="login-card-footer">
             Don't have an account?{" "}
             <Link to="/signup">Create a free account.</Link>
           </div>
-          {console.log(isAuthenticated) && <Link to="/"/>}
         </div>
       </div>
     </>
