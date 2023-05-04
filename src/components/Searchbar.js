@@ -14,11 +14,10 @@ export default function Searchbar(props) {
   function handleSearch(event){
     event.preventDefault();
     getSearch(text);
-    console.log(text+"from handle search");
   }
   const handleChange = (event) =>{
     setText(event.target.value,()=>{
-      console.log(text+"from handle change");
+
     });
   }
   useEffect(() => {

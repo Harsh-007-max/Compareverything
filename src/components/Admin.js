@@ -2,7 +2,8 @@ import React,{useState,useEffect} from 'react'
 import './CSS/Admin.css';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweepRounded';
-function Admin() {
+import { Link } from 'react-router-dom';
+function Admin(props) {
     const [data, setData] = useState([]);
     const [pname,setPname] = useState();
     const [Qty,setQty] = useState();
@@ -24,8 +25,10 @@ function Admin() {
   }, []);
   return (
     <>
+        <div className='insert__btn'><Link to='/Insert' class="btn btn-outline-success btn-lg">Insert</Link></div>
+        <div className='borderdiv'></div>
         <div className='Admin__root'>
-      <table className='table table-dark table-bordered"'>
+      <table className={`table ${props.mode==='light'?'':'table-dark'} table-bordered`}>
       <thead className='table-dark'>
         <tr className='table__row'>
           <th>Pid</th>
@@ -49,20 +52,20 @@ function Admin() {
             {data.map((item, index) => (
               <tr key={index}>
                 <td>{item.Pid}</td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPname(e.target.value)} value={item.Pname}/></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setQty(e.target.value)} value={item.Qty}/></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPA(e.target.value)} value={item.PriceAmazon}/></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPF(e.target.value)} value={item.PriceFlipcart}/></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPLS(e.target.value)} value={item.PriceLS}/></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPI(e.target.value)} value={item.PImage} /></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPD(e.target.value)} value={item.PDisc}/></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPT(e.target.value)} value={item.PType}/></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPC(e.target.value)} value={item.Category}/></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPAL(e.target.value)} value={item.AmazonLink}/></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPFL(e.target.value)} value={item.FlipkartLink}/></td>
-                <td><input className='form-control' type='text'onChange={(e)=>setPLSL(e.target.value)} value={item.LS}/></td>
-                <td><button className='btn table__buttons'><EditNoteIcon color='success'/></button></td>
-                <td><button className='btn table__buttons'><DeleteSweepIcon color='success'/></button></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPname(e.target.value)} value={item.Pname}/></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setQty(e.target.value)} value={item.Qty}/></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPA(e.target.value)} value={item.PriceAmazon}/></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPF(e.target.value)} value={item.PriceFlipcart}/></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPLS(e.target.value)} value={item.PriceLS}/></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPI(e.target.value)} value={item.PImage} /></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPD(e.target.value)} value={item.PDisc}/></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPT(e.target.value)} value={item.PType}/></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPC(e.target.value)} value={item.Category}/></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPAL(e.target.value)} value={item.AmazonLink}/></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPFL(e.target.value)} value={item.FlipkartLink}/></td>
+                <td><input className={`form-control ${props.mode==='light'?'input__light':'input__dark'}`} type='text'onChange={(e)=>setPLSL(e.target.value)} value={item.LS+" "}/></td>
+                <td><button type='button' className={`btn table__buttons ${props.mode ==='light'?'table__buttons__light':'table__buttons__dark'}`}><EditNoteIcon color='success'/></button></td>
+                <td><button type='button' className={`btn table__buttons ${props.mode ==='light'?'table__buttons__light':'table__buttons__dark'}`}><DeleteSweepIcon color='success'/></button></td>
               </tr>
             ))}
         </tbody>

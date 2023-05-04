@@ -7,10 +7,31 @@
     width:10px;
 }
 .table__buttons{
-    background-color: #212529;
     margin:2px;
 }
-.table__body > tr > td > input{
+.table__buttons__light{
+    background-color: whitesmoke;
+}
+.table__buttons__dark{
+    background-color: #212529;
+}
+/* .table__body > tr > td > input{
+    background-color: #212529;
+    color:white;
+} */
+.insert__btn{
+    padding:10px 10px 10px 10px;
+    background-color: #212529;
+}
+.borderdiv{
+    padding: 1px;
+    background-color: #27d383;
+}
+.input__light{
+    background-color: whitesmoke;
+    color: black;
+}
+.input__dark{
     background-color: #212529;
     color:white;
 }
