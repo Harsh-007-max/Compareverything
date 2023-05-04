@@ -1,9 +1,21 @@
 import React,{useState,useEffect} from 'react'
 import './CSS/Admin.css';
 import EditNoteIcon from '@mui/icons-material/EditNote';
-import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
+import DeleteSweepIcon from '@mui/icons-material/DeleteSweepRounded';
 function Admin() {
     const [data, setData] = useState([]);
+    const [pname,setPname] = useState();
+    const [Qty,setQty] = useState();
+    const [PA,setPA] = useState();
+    const [PF,setPF] = useState();
+    const [PLS,setPLS] = useState();
+    const [PI,setPI] = useState();
+    const [PD,setPD] = useState();
+    const [PT,setPT] = useState();
+    const [PC,setPC] = useState();
+    const [PAL,setPAL] = useState();
+    const [PFL,setPFL] = useState();
+    const [PLSL,setPLSL] = useState();
   useEffect(() => {
     fetch("http://localhost:3005/product")
       .then((res) => res.json())
@@ -12,41 +24,45 @@ function Admin() {
   }, []);
   return (
     <>
-        <div>
-      <table border={3}>
-      <thead>
-        <tr>
-          <th>Product-ID</th>
-          <th>Product-Name</th>
+        <div className='Admin__root'>
+      <table className='table table-dark table-bordered"'>
+      <thead className='table-dark'>
+        <tr className='table__row'>
+          <th>Pid</th>
+          <th>Pname</th>
           <th>Quantity</th>
-          <th>Product-Type</th>
-          <th>Catagory</th>
-          <th>Product-Discription</th>
-          <th>PriceAmazon</th>
-          <th>PriceFlipcart</th>
-          <th>PriceLocalSeller</th>
-          <th>AmazonLink</th>
-          <th>FlipkartLink</th>
+          <th>Price Amazon</th>
+          <th>Price Flipcart</th>
+          <th>Price Local Seller</th>
+          <th>Product Image</th>
+          <th>Product Discription</th>
+          <th>Product Type</th>
+          <th>Category</th>
+          <th>Amazon Link</th>
+          <th>Flipkart Link</th>
+          <th>Local Seller Link</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody className='table__body'>
             {data.map((item, index) => (
               <tr key={index}>
                 <td>{item.Pid}</td>
-                <td>{item.Pname}</td>
-                <td>{item.Qty}</td>
-                <td>{item.PType}</td>
-                <td>{item.Category}</td>
-                <td>{item.PDisc}</td>
-                <td>{item.PriceAmazon}</td>
-                <td>{item.PriceFlipcart}</td>
-                <td>{item.PriceLS}</td>
-                <td>{item.AmazonLink}</td>
-                <td>{item.FlipkartLink}</td>
-                <td><img src={EditNoteIcon} width="40px" height="20px"></img></td>
-                <td><img src={DeleteSweepIcon} width="40px" height="20px"></img></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPname(e.target.value)} value={item.Pname}/></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setQty(e.target.value)} value={item.Qty}/></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPA(e.target.value)} value={item.PriceAmazon}/></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPF(e.target.value)} value={item.PriceFlipcart}/></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPLS(e.target.value)} value={item.PriceLS}/></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPI(e.target.value)} value={item.PImage} /></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPD(e.target.value)} value={item.PDisc}/></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPT(e.target.value)} value={item.PType}/></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPC(e.target.value)} value={item.Category}/></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPAL(e.target.value)} value={item.AmazonLink}/></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPFL(e.target.value)} value={item.FlipkartLink}/></td>
+                <td><input className='form-control' type='text'onChange={(e)=>setPLSL(e.target.value)} value={item.LS}/></td>
+                <td><button className='btn table__buttons'><EditNoteIcon color='success'/></button></td>
+                <td><button className='btn table__buttons'><DeleteSweepIcon color='success'/></button></td>
               </tr>
             ))}
         </tbody>

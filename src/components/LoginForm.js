@@ -22,7 +22,7 @@ function LoginForm(props) {
     if (authenticatedUser) {
       console.log("authentication succesful " + email + " and " + password);
       redirect = true;
-      navigate('/');
+      navigate('/Admin');
     } else {
       console.log("authentication failed " + email + " and " + password);
       redirect=false;

@@ -1,0 +1,16 @@
+.Admin__root{
+    display: flex;
+    flex-direction: column;
+    
+}
+.table__row{
+    width:10px;
+}
+.table__buttons{
+    background-color: #212529;
+    margin:2px;
+}
+.table__body > tr > td > input{
+    background-color: #212529;
+    color:white;
+}
